@@ -1,0 +1,86 @@
+/* Reset all default browser margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.game-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.level-panel {
+  color: white;
+  width: 50vw;
+  height: 100vh;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  position: relative; /* Needed for absolute positioning of overlay */
+
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.5rem;
+}
+
+/* Gradient overlay for better text readability */
+.level-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1; /* Above background image, below content */
+}
+
+/* Ensure text content is above the overlay */
+.level-panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+.level-panel > h3 {
+  margin: 0px;
+}
+
+.level-panel > p {
+  margin-top: 0px;
+}
+
+.level-panel > .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.buttons button {
+  font-size: 1rem;
+  background-color: transparent;
+  color: white;
+  border: 3px solid rgb(255, 241, 132);
+  border-radius: 10px;
+  padding: 15px;
+  width: 10rem;
+  cursor: pointer;
+}
