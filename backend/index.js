@@ -1,8 +1,15 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const app = express();
 
-app.use(cors());
+const PORT = process.env.PORT
+const CORS_ORIGIN = process.env.CORS_ORIGIN;
+
+app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
 
 app.get("/generate/level/downloads", async (req, res) => {
