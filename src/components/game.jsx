@@ -8,7 +8,7 @@ function Game({ playing, setPlaying }) {
   const [Highscore, setHighscore] = useState(0);
   const [buttons, setButtons] = useState(false);
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const fetchLevel = async () => {
     const response = await fetch(
